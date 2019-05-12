@@ -11,7 +11,7 @@ namespace ServerSideCosmosDb
         {
             DemoMethods = new Dictionary<string, Func<Task>>();
             DemoMethods.Add("SP", StoredProceduresDemo.Run);
-            //DemoMethods.Add("TR", TriggersDemo.Run);
+            DemoMethods.Add("TR", TriggersDemo.Run);
             //DemoMethods.Add("UF", UserDefinedFunctionsDemo.Run);
             //DemoMethods.Add("C", Cleanup.Run);
 

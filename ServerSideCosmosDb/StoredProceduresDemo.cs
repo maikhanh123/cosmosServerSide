@@ -58,19 +58,22 @@ namespace ServerSideCosmosDb
                     name = $"Bulk inserted doc {i}",
                     address = new
                     {
-                        postalCode = "12345"
+                        postalCode = $"a{i}"
                     }
                 };
                 docs.Add(doc);
             }
 
-            var uri = UriFactory.CreateStoredProcedureUri("FamiliesDb", "mystore", "spBulkInsert");
-            var options = new RequestOptions { PartitionKey = new PartitionKey("12345") };
+            var uri = UriFactory.CreateStoredProcedureUri("FamiliesDb", "mystore", "spBulkInsert").ToString();
+            //var options = new RequestOptions { PartitionKey = new PartitionKey("12345") };
+            //var options = new RequestOptions { PartitionKey = new PartitionKey() };
 
             var totalInserted = 0;
             while (totalInserted < total)
             {
-                var result = await client.ExecuteStoredProcedureAsync<int>(uri, options, docs);
+                //var options = new RequestOptions { PartitionKey = new PartitionKey() };
+                //var result = await client.ExecuteStoredProcedureAsync<int>(uri, options, docs);
+                var result = await client.ExecuteStoredProcedureAsync<int>(uri, docs);
                 var inserted = result.Response;
                 totalInserted += inserted;
                 var remaining = total - totalInserted;

@@ -95,6 +95,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoredProceduresDemo.cs" />
+    <Compile Include="TriggersDemo.cs" />
+    <Compile Include="UserDefinedFunctionsDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

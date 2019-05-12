@@ -4,7 +4,7 @@
 	var request = context.getRequest();
 	var doc = request.getBody();
 
-	var weekday = doc.weekdayOff
+	var weekday = doc.weekdayOff;
 	if (!weekday || !weekday.length || weekday.length < 3) {
 		throw new Error('Expected document to contain weekdayOff property');
 	}
